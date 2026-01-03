@@ -1,0 +1,365 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Axiom Trade Design System - Dark Theme Optimized */
+
+@layer base {
+  :root {
+    /* Core Background Palette - Deep Space Black */
+    --background: 220 20% 6%;
+    --background-elevated: 220 18% 8%;
+    --background-surface: 220 16% 10%;
+    --background-hover: 220 14% 12%;
+    --background-active: 220 12% 14%;
+    
+    /* Card & Panel Surfaces */
+    --card: 220 18% 9%;
+    --card-foreground: 210 20% 98%;
+    --card-hover: 220 16% 11%;
+    --card-border: 220 15% 16%;
+    
+    /* Popover & Modal */
+    --popover: 220 20% 8%;
+    --popover-foreground: 210 20% 98%;
+    
+    /* Text Hierarchy */
+    --foreground: 210 20% 98%;
+    --foreground-secondary: 215 15% 70%;
+    --foreground-muted: 215 12% 50%;
+    --foreground-dim: 215 10% 35%;
+    
+    /* Primary - Axiom Blue/Cyan */
+    --primary: 200 100% 50%;
+    --primary-glow: 200 100% 60%;
+    --primary-dim: 200 80% 40%;
+    --primary-foreground: 220 20% 6%;
+    
+    /* Secondary - Slate Blue */
+    --secondary: 220 15% 18%;
+    --secondary-foreground: 210 20% 85%;
+    
+    /* Muted */
+    --muted: 220 14% 14%;
+    --muted-foreground: 215 12% 55%;
+    
+    /* Accent - Electric Blue */
+    --accent: 200 100% 50%;
+    --accent-glow: 200 100% 65%;
+    --accent-foreground: 220 20% 6%;
+    
+    /* Semantic Colors - Trading */
+    --success: 142 76% 45%;
+    --success-glow: 142 76% 55%;
+    --success-dim: 142 60% 35%;
+    --success-foreground: 142 76% 95%;
+    
+    --destructive: 0 84% 55%;
+    --destructive-glow: 0 84% 65%;
+    --destructive-dim: 0 70% 40%;
+    --destructive-foreground: 0 84% 98%;
+    
+    --warning: 38 92% 50%;
+    --warning-glow: 38 92% 60%;
+    --warning-foreground: 38 92% 10%;
+    
+    /* Price Change Colors */
+    --price-up: 142 76% 45%;
+    --price-up-bg: 142 76% 45% / 0.12;
+    --price-down: 0 84% 55%;
+    --price-down-bg: 0 84% 55% / 0.12;
+    --price-neutral: 215 12% 50%;
+    
+    /* Progress Bar */
+    --progress-bg: 220 15% 15%;
+    --progress-fill: 142 76% 45%;
+    --progress-glow: 142 76% 55%;
+    
+    /* Interactive */
+    --border: 220 15% 18%;
+    --border-hover: 220 15% 25%;
+    --border-focus: 200 100% 50%;
+    --input: 220 15% 12%;
+    --input-focus: 220 15% 15%;
+    --ring: 200 100% 50%;
+    
+    /* Table Specific */
+    --table-row-hover: 220 15% 10%;
+    --table-row-active: 220 15% 12%;
+    --table-header: 220 14% 8%;
+    --table-border: 220 15% 14%;
+    
+    /* Tab Navigation */
+    --tab-inactive: 215 12% 50%;
+    --tab-active: 210 20% 98%;
+    --tab-indicator: 200 100% 50%;
+    
+    /* Skeleton Loading */
+    --skeleton-base: 220 15% 12%;
+    --skeleton-shine: 220 15% 18%;
+    
+    /* Radius */
+    --radius: 0.5rem;
+    --radius-sm: 0.25rem;
+    --radius-lg: 0.75rem;
+    --radius-xl: 1rem;
+    
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 hsl(0 0% 0% / 0.3);
+    --shadow-md: 0 4px 6px -1px hsl(0 0% 0% / 0.4), 0 2px 4px -2px hsl(0 0% 0% / 0.3);
+    --shadow-lg: 0 10px 15px -3px hsl(0 0% 0% / 0.5), 0 4px 6px -4px hsl(0 0% 0% / 0.4);
+    --shadow-glow-primary: 0 0 20px hsl(200 100% 50% / 0.3);
+    --shadow-glow-success: 0 0 15px hsl(142 76% 45% / 0.25);
+    
+    /* Gradients */
+    --gradient-surface: linear-gradient(180deg, hsl(220 18% 10%) 0%, hsl(220 20% 7%) 100%);
+    --gradient-card: linear-gradient(135deg, hsl(220 18% 10%) 0%, hsl(220 20% 8%) 100%);
+    --gradient-primary: linear-gradient(135deg, hsl(200 100% 50%) 0%, hsl(200 100% 40%) 100%);
+    --gradient-success: linear-gradient(135deg, hsl(142 76% 50%) 0%, hsl(142 76% 40%) 100%);
+    --gradient-shimmer: linear-gradient(90deg, transparent 0%, hsl(220 15% 20% / 0.5) 50%, transparent 100%);
+    
+    /* Sidebar (keeping for compatibility) */
+    --sidebar-background: 220 20% 6%;
+    --sidebar-foreground: 210 20% 85%;
+    --sidebar-primary: 200 100% 50%;
+    --sidebar-primary-foreground: 220 20% 6%;
+    --sidebar-accent: 220 15% 12%;
+    --sidebar-accent-foreground: 210 20% 85%;
+    --sidebar-border: 220 15% 15%;
+    --sidebar-ring: 200 100% 50%;
+  }
+
+  /* Dark mode is default, no need for .dark class */
+  .dark {
+    /* Same as root - dark by default */
+  }
+}
+
+/* Base Styles */
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+  }
+
+  /* Mono text for prices */
+  .font-mono {
+    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+  }
+}
+
+/* Custom Utilities */
+@layer utilities {
+  /* Price Change Animations */
+  .price-flash-up {
+    animation: flash-green 0.6s ease-out;
+  }
+  
+  .price-flash-down {
+    animation: flash-red 0.6s ease-out;
+  }
+
+  /* Skeleton Shimmer */
+  .skeleton-shimmer {
+    background: linear-gradient(
+      90deg,
+      hsl(var(--skeleton-base)) 0%,
+      hsl(var(--skeleton-shine)) 50%,
+      hsl(var(--skeleton-base)) 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite ease-in-out;
+  }
+
+  /* Pulse Glow Effect */
+  .pulse-glow {
+    animation: pulse-glow 2s infinite ease-in-out;
+  }
+
+  /* Tab Indicator */
+  .tab-indicator {
+    @apply absolute bottom-0 left-0 h-0.5 bg-primary transition-all duration-300 ease-out;
+  }
+
+  /* Progress Bar Fill */
+  .progress-fill {
+    @apply transition-all duration-500 ease-out;
+    box-shadow: 0 0 8px hsl(var(--progress-glow) / 0.4);
+  }
+
+  /* Token Row Hover */
+  .token-row-hover {
+    @apply transition-all duration-150 ease-out;
+  }
+
+  .token-row-hover:hover {
+    background: linear-gradient(90deg, hsl(var(--table-row-hover)) 0%, transparent 100%);
+  }
+
+  /* Quick Buy Button Glow */
+  .quick-buy-glow {
+    @apply relative overflow-hidden;
+  }
+
+  .quick-buy-glow::after {
+    content: '';
+    @apply absolute inset-0 opacity-0 transition-opacity duration-200;
+    background: radial-gradient(circle at center, hsl(var(--primary-glow) / 0.3) 0%, transparent 70%);
+  }
+
+  .quick-buy-glow:hover::after {
+    @apply opacity-100;
+  }
+
+  /* Social Icon Hover */
+  .social-icon-hover {
+    @apply transition-all duration-150;
+  }
+
+  .social-icon-hover:hover {
+    @apply text-foreground scale-110;
+  }
+
+  /* Scrollbar Styling */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: hsl(var(--background));
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: hsl(var(--border));
+    border-radius: 3px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--border-hover));
+  }
+
+  /* Text Gradient */
+  .text-gradient-primary {
+    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary-glow)) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Glass Effect */
+  .glass-effect {
+    backdrop-filter: blur(12px);
+    background: hsl(var(--background) / 0.8);
+  }
+}
+
+/* Keyframe Animations */
+@keyframes flash-green {
+  0%, 100% {
+    background-color: transparent;
+  }
+  50% {
+    background-color: hsl(142 76% 45% / 0.15);
+  }
+}
+
+@keyframes flash-red {
+  0%, 100% {
+    background-color: transparent;
+  }
+  50% {
+    background-color: hsl(0 84% 55% / 0.15);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 5px hsl(var(--primary) / 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.5);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Animation Classes */
+@layer utilities {
+  .animate-fade-in {
+    animation: fade-in 0.3s ease-out forwards;
+  }
+
+  .animate-slide-up {
+    animation: slide-up 0.4s ease-out forwards;
+  }
+
+  .animate-scale-in {
+    animation: scale-in 0.2s ease-out forwards;
+  }
+
+  .animation-delay-100 {
+    animation-delay: 100ms;
+  }
+
+  .animation-delay-200 {
+    animation-delay: 200ms;
+  }
+
+  .animation-delay-300 {
+    animation-delay: 300ms;
+  }
+}
